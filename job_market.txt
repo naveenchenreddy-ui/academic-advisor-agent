@@ -1,0 +1,20 @@
+HOT SKILLS 2024-2025:
+1. GenAI / LLM Engineering — highest demand, lowest supply
+2. MLOps / AI Infrastructure — growing as AI productionizes
+3. Cloud-Native (AWS/GCP/Azure + Kubernetes)
+4. Full Stack (React + Python/Node)
+5. Data Engineering (Spark, Kafka, dbt)
+6. Cybersecurity (DPDP Act driving demand in India)
+
+COMPANIES ACTIVELY HIRING FRESHERS:
+Tier 1: Google, Microsoft, Amazon, Adobe, Salesforce, Atlassian
+Indian Product: Flipkart, Zomato, Swiggy, Zepto, CRED, Razorpay, PhonePe, Groww
+GCCs: JP Morgan Tech, Goldman Sachs Engineering, Deutsche Bank Tech
+Services: TCS, Infosys, Wipro, Cognizant, Capgemini, HCL
+
+SALARY RANGES:
+Fresher SDE (product): Rs 12-35 LPA
+Fresher ML/Data (product): Rs 10-28 LPA
+Service companies: Rs 3.5-7 LPA
+FAANG India: Rs 30-80+ LPA
+US job post-MS: $100-180K USD

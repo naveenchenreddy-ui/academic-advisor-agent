@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Advisor v2 - Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">🎓</div>
+                <h2>Academic Advisor</h2>
+            </div>
+            
+            <nav class="menu">
+                <a href="#dashboard" class="menu-item active" data-page="dashboard">
+                    <span class="icon">📊</span> Dashboard
+                </a>
+                <a href="#courses" class="menu-item" data-page="courses">
+                    <span class="icon">📚</span> My Courses
+                </a>
+                <a href="#chat" class="menu-item" data-page="advisor-chat">
+                    <span class="icon">💬</span> Advisor Chat
+                </a>
+                <a href="#career" class="menu-item" data-page="career">
+                    <span class="icon">🧭</span> Career
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info" id="userInfo">Guest</div>
+                <button class="btn-logout" id="logoutBtn">Sign Out</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Dashboard Page -->
+            <div id="dashboard" class="page-content active">
+                <h1>Dashboard</h1>
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <h3>Your Career Snapshot</h3>
+                        <p class="subtitle">Based on your profile</p>
+                        <div class="career-tags">
+                            <span class="tag">ML Engineer</span>
+                            <span class="tag">Data Scientist</span>
+                            <span class="tag">Full Stack Dev</span>
+                            <span class="tag">Cloud Architect</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Recommended Skills</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <strong>Python & ML libraries</strong>
+                                <p>Trending — high demand</p>
+                                <button class="btn-learn">Learn</button>
+                            </div>
+                            <div class="skill-item">
+                                <strong>Cloud (AWS/GCP)</strong>
+                                <p>Hiring spike in 2025</p>
+                                <button class="btn-learn">Learn</button>
+                            </div>
+                            <div class="skill-item">
+                                <strong>System Design</strong>
+                                <p>Essential for FAANG</p>
+                                <button class="btn-learn">Learn</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Courses Page -->
+            <div id="courses" class="page-content">
+                <div class="page-top-row">
+                    <div>
+                        <h1>My Courses</h1>
+                        <p>Add courses from your curriculum to get personalized advice.</p>
+                    </div>
+                    <button class="btn-primary" id="showCourseFormBtn">+ Add course</button>
+                </div>
+
+                <div class="courses-summary-grid">
+                    <div class="stat-card">
+                        <span class="stat-value" id="courseCount">0</span>
+                        <span class="stat-label">Enrolled courses</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="totalCredits">0</span>
+                        <span class="stat-label">Total credits</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="electivesCount">0</span>
+                        <span class="stat-label">Electives</span>
+                    </div>
+                </div>
+
+                <div id="courseForm" class="course-form card hidden">
+                    <h3>Add a new course</h3>
+                    <form id="newCourseForm">
+                        <div class="form-row">
+                            <label for="courseName">Course name</label>
+                            <input type="text" id="courseName" name="courseName" placeholder="Operating Systems" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="courseCode">Course code</label>
+                            <input type="text" id="courseCode" name="courseCode" placeholder="CS057" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="courseCredits">Credits</label>
+                            <input type="number" id="courseCredits" name="courseCredits" placeholder="4" min="0" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="courseType">Type</label>
+                            <select id="courseType" name="courseType">
+                                <option value="core">Core</option>
+                                <option value="elective">Elective</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Save course</button>
+                            <button type="button" class="btn-secondary" id="cancelCourseBtn">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="courseListContainer">
+                    <div id="courseList" class="course-list"></div>
+                    <div class="placeholder" id="coursesPlaceholder">📚 No courses added yet</div>
+                </div>
+            </div>
+
+            <!-- Career Page -->
+            <div id="career" class="page-content">
+                <h1>Career Planning</h1>
+                <p>Explore paths and opportunities</p>
+                <div class="career-snapshot">
+                    <h3>Your Career Snapshot</h3>
+                    <div class="career-tags">
+                        <span class="tag">ML Engineer</span>
+                        <span class="tag">Data Scientist</span>
+                        <span class="tag">Full Stack Dev</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advisor Chat Page -->
+            <div id="advisor-chat" class="page-content">
+                <h1>Advisor Chat</h1>
+                <p class="subtitle">Ask your AI academic advisor</p>
+                
+                <div class="chat-container">
+                    <div id="chatMessages" class="chat-messages">
+                        <div class="message advisor-message">
+                            <strong>Advisor:</strong>
+                            <p>Hi! I'm your academic advisor. Ask me about courses, careers, internships, or anything academic.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-questions">
+                        <button class="quick-btn" onclick="sendMessage('Which electives suit me?')">Which electives suit me?</button>
+                        <button class="quick-btn" onclick="sendMessage('How to improve CGPA?')">How to improve CGPA?</button>
+                        <button class="quick-btn" onclick="sendMessage('Best internships for CSE?')">Best internships for CSE?</button>
+                        <button class="quick-btn" onclick="sendMessage('Exam form deadline?')">Exam form deadline?</button>
+                    </div>
+                    
+                    <div class="chat-input">
+                        <input type="text" id="messageInput" placeholder="Ask your advisor..." autocomplete="off">
+                        <button onclick="sendMessage()" class="btn-send">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
